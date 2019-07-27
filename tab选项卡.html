@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .tab {
+        width: 450px;
+        border: 1px solid #ccc;
+        margin: 50px auto;
+        box-shadow: 0 0 15px rgb(218, 217, 217)
+    }
+    
+    .title ul {
+        height: 36px;
+    }
+    
+    .active {
+        background: #555F61 !important;
+        color: white
+    }
+    
+    .title li {
+        list-style: none;
+        width: 150px;
+        line-height: 36px;
+        text-align: center;
+        float: left;
+        background: #6CDBEC;
+        cursor: pointer;
+        font-weight: 700;
+    }
+    
+    .content {
+        padding: 10px;
+        height: 180px;
+        background: #555F61
+    }
+    
+    .show {
+        display: block;
+    }
+    
+    p {
+        display: none;
+        color: white
+    }
+</style>
+
+<body>
+    <div class="tab">
+        <div class="title">
+            <ul>
+                <li class='active'>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+        <div class="content">
+            <p class="show">超文本标记语言(Hyper Text Markup Language)，标准通用标记语言下的一个应用。HTML 不是一种编程语言，而是一种标记语言 (markup language)，是网页制作所必备的 “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。 超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+            <p>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+            <p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</p>
+        </div>
+
+    </div>
+    <!-- <script>
+        var aLi = document.querySelectorAll('li');
+        var aP = document.querySelectorAll('p');
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i; //给li标签写入一个属性：index='i';为了与p的内容一一对应
+            aLi[i].onclick = function() {
+                for (var j = 0; j < aP.length; j++) {
+                    aLi[j].setAttribute('class', ''); //给li标签重新写入一个自定义属性，属性值为空
+                    aP[j].style.display = 'none'; //让其他的内容块隐藏
+                }
+                this.setAttribute('class', 'active'); //当当前li被点击时，给自定义属性赋属性值，改变背景色
+                aP[this.index].style.display = 'block'; //利用li和p的下标的一一对应关系，点击li让相对应的p出现
+            }
+        }
+    </script> -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $('.title ul li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.content p').eq($(this).index()).addClass('show').siblings().removeClass('show')
+        })
+    </script>
+</body>
+
+</html>

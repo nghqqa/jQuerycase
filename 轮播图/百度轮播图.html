@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .banner {
+            width: 600px;
+            height: 350px;
+            margin: auto;
+            position: relative;
+        }
+        
+        .pic {
+            height: 350px;
+            position: relative
+        }
+        
+        .banner .pic li {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none
+        }
+        
+        .banner .pic li:nth-child(1) {
+            display: block
+        }
+        
+        img {
+            display: block;
+            width: 600px;
+            height: 350px;
+        }
+        
+        .circle {
+            height: 20px;
+            width: 240px;
+            margin: auto;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -120px;
+        }
+        
+        .circle li {
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: #aaa;
+            float: left;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .circle .active {
+            background: lightskyblue
+        }
+        
+        .left {
+            font-size: 50px;
+            color: #aaa;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            cursor: pointer;
+            opacity: 0.5;
+            background: white;
+            display: none;
+        }
+        
+        .right {
+            font-size: 50px;
+            color: #aaa;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -25px;
+            cursor: pointer;
+            background: white;
+            opacity: 0.5;
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul class="pic">
+            <li>
+                <a href="#"><img src="./img/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/5.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/6.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/7.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./img/8.jpg" alt=""></a>
+            </li>
+        </ul>
+        <ul class="circle">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="right">&gt;</div>
+        <div class="left">
+            &lt;</div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="lunbotu.js"></script>
+</body>
+
+</html>

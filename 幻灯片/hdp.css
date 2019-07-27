@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    width: 500px;
+    height: 320px;
+    border: 10px solid orange;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: 500px;
+    height: 320px;
+}
+
+.pic {
+    height: 320px;
+}
+
+.pic ul {
+    height: 320px;
+    position: absolute;
+}
+
+.pic ul li {
+    width: 500px;
+    float: left
+}
+
+.button {
+    width: 180px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -90px;
+    bottom: 10px;
+}
+
+.button .active {
+    background: lightgreen
+}
+
+.button ul li {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    margin: 0 5px;
+    border-radius: 50%;
+    float: left;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.left,
+.right {
+    font-size: 60px;
+    color: black;
+    position: absolute;
+    height: 80px;
+    background: bisque;
+    margin-top: -40px;
+    top: 50%;
+    opacity: 0.5;
+    display: none;
+    cursor: pointer;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}

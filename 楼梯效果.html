@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'microsoft yahei';
+        }
+        
+        html,
+        body {
+            width: 100%;
+        }
+        
+        #loutinav {
+            width: 35px;
+            position: fixed;
+            top: 60px;
+            left: 50px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        
+        #loutinav ul li {
+            width: 35px;
+            height: 32px;
+            border-bottom: 1px dotted #DDDDDD;
+            list-style: none;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            padding: 10px 0;
+            background: #918888;
+            color: #fff;
+        }
+        
+        #loutinav ul li span {
+            width: 35px;
+            height: 32px;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        #loutinav ul li.last {
+            background: #5e4a4a;
+            color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #loutinav ul li.active span {
+            background: #c00;
+            color: #fff;
+            display: block;
+        }
+        
+        #loutinav ul li:hover span {
+            background: #c00;
+            color: #fff;
+            display: block;
+        }
+        
+        #header {
+            width: 1000px;
+            height: 1000px;
+            background: #cc6633;
+            margin: 0 auto;
+            font-size: 50px;
+            line-height: 1000px;
+            text-align: center;
+            color: #000;
+        }
+        
+        #main {
+            width: 1000px;
+            background: #66ff66;
+            margin: 0 auto;
+        }
+        
+        #main .louceng {
+            height: 600px;
+            width: 1000px;
+            font-size: 50px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 600px;
+        }
+        
+        #footer {
+            width: 1000px;
+            height: 400px;
+            background: red;
+            margin: 0 auto;
+            font-size: 50px;
+            line-height: 400px;
+            text-align: center;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--左侧楼梯导航-->
+    <div id="loutinav">
+        <ul>
+            <li class="active"><span>享品质</span> </li>
+            <li><span>服饰美妆</span> </li>
+            <li><span>电脑数码</span> </li>
+            <li><span>3C运动</span> </li>
+            <li><span>爱吃</span> </li>
+            <li><span>母婴居家</span> </li>
+            <li><span>图书汽车</span> </li>
+            <li><span>虚拟</span> </li>
+            <li><span>还没逛够</span> </li>
+            <li class="last">顶部</li>
+        </ul>
+    </div>
+    <!--楼层内容开始-->
+    <div id="header">
+        网站头部(height:1000px)
+    </div>
+
+    <div id="main">
+        <div class="louceng" style="background: #cc0033;">享品质</div>
+        <div class="louceng" style="background: #999933;">服饰美妆</div>
+        <div class="louceng" style="background: #ccff33;">电脑数码</div>
+        <div class="louceng" style="background: #006633;">3C运动</div>
+        <div class="louceng" style="background: #6666cc;">爱吃</div>
+        <div class="louceng" style="background: #ff6600;">母婴居家</div>
+        <div class="louceng" style="background: #ffff00;">图书汽车</div>
+        <div class="louceng" style="background: #3333ff;">虚拟</div>
+        <div class="louceng" style="background: #ff00cc;">还没逛够</div>
+    </div>
+
+
+    <div id="footer">
+        网站底部
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(function() {
+
+            const $loutinav = $('#loutinav')
+            const $navlis = $('#loutinav li'); //楼梯
+            const $louceng = $('.louceng'); //楼层
+            const $header = $('#header');
+            const $lastli = $('.last');
+            //1.显示隐藏楼梯，根据滚动条距离顶端的距离来判断
+            $(window).on('scroll', function() { //加滚轮事件
+                    let $scrolltop = $(window).scrollTop(); //获取滚动条距离顶端距离
+                    if ($scrolltop > $header.height() / 2) {
+                        $loutinav.show();
+                    } else {
+                        $loutinav.hide();
+                    }
+                    //触发滚动条事件
+                    //遍历楼层遍历获取楼层的top值
+                    $louceng.each(function(index, element) { //each方法遍历
+                        let $loucengtop = $louceng.eq(index).offset().top; //获取对应索引楼层的高度
+                        if ($loucengtop + $(element).height() / 2 > $scrolltop) {
+                            $navlis.not($lastli).removeClass('active');
+                            $navlis.not($lastli).eq(index).addClass('active')
+                            return false
+                        }
+                    })
+                })
+                //2.点击楼梯，出现效果，并且楼层显示与楼梯对应的内容
+            $navlis.not($lastli).on('click', function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    //获得楼梯对应的楼层的top值，主要通过对应的索引对应
+
+                    let $loucengtop = $louceng.eq($(this).index()).offset().top;
+
+                    $('html,body').animate({
+                        scrollTop: $loucengtop
+                    });
+                })
+                //3.回到顶部
+            $lastli.on('click', function() {
+                $('html,body').animate({
+                    scrollTop: 0
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            padding: 15px;
+        }
+        
+        .add {
+            background: url(./img/add.gif) no-repeat 0 22px;
+        }
+        
+        .reduce {
+            background: url(./img/reduce.gif) no-repeat 0 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>一级菜单</li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>一级菜单</li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+    </ul>
+    <ul>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+                <li>二级菜单</li>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+        <li>一级菜单</li>
+        <li>一级菜单
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+                <li>二级菜单</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(function() {
+        const $lis = $('li').has('ul');
+        $lis.addClass('add').children('ul').hide();
+        $lis.on('click', function(ev) {
+            if (this === ev.target) {
+                if ($(this).children('ul').is(':hidden')) {
+                    $(this).removeClass('add').addClass('reduce').children('ul').show()
+                } else {
+                    $(this).addClass('add').removeClass('reduce').children('ul').hide()
+                }
+            }
+        })
+    })
+</script>
+
+</html>

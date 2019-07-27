@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" class="all">全选<br>
+    <input type="checkbox">1<br>
+    <input type="checkbox">2<br>
+    <input type="checkbox">3<br>
+    <input type="checkbox">4<br>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(function() {
+            const $selectall = $('.all');
+            const $inputs = $('input').not($selectall);
+            $selectall.on('click', function() {
+                if ($selectall.prop('checked')) {
+                    $inputs.prop('checked', true);
+                } else {
+                    $inputs.prop('checked', false);
+                }
+            });
+            $inputs.on('click', function() {
+                if ($inputs.size() === $('input:checked').not($selectall).length) {
+                    $selectall.prop('checked', true)
+                } else {
+                    $selectall.prop('checked', false)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

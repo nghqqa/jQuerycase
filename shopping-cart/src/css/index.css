@@ -1,0 +1,219 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.itemlist {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.itemlist ul li {
+    width: 230px;
+    height: 300px;
+    float: left;
+    margin: 0 10px 10px 0;
+    border: 2px solid rgb(97, 96, 96)
+}
+
+.itemlist ul li a {
+    text-decoration: none;
+    color: black
+}
+
+.itemlist ul li p {
+    padding: 5px 10px;
+    font-size: 14px
+}
+
+.itemlist ul li img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 10px auto;
+}
+
+
+/* 详情页 */
+
+.details {
+    margin: 30px 0 0 50px;
+    position: relative;
+    height: 100%;
+}
+
+body,
+html {
+    height: 100%
+}
+
+.details_left {
+    float: left;
+    width: 400px;
+    position: relative;
+}
+
+.details_right {
+    float: left;
+    margin-left: 420px;
+}
+
+.scale {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.bf {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: absolute;
+    left: 410px;
+    top: 0px;
+    visibility: hidden;
+}
+
+.sf {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: orange;
+    opacity: 0.3;
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+    cursor: move;
+}
+
+.bpic {
+    width: 800px;
+    height: 800px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.spic {
+    border: 1px solid #ccc;
+    width: 400px;
+    position: relative;
+}
+
+.spic img {
+    width: 400px;
+    display: block;
+}
+
+.icolist {
+    width: 400px;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 5px;
+}
+
+.movelist {
+    width: 376px;
+    height: 62px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.movelist ul {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.movelist li {
+    float: left;
+    padding: 0 5px;
+    margin-right: 5px;
+}
+
+#left,
+#right {
+    text-decoration: none;
+    width: 12px;
+    float: left;
+}
+
+#left {
+    color: #333;
+    visibility: hidden
+}
+
+#right {
+    color: #333;
+    visibility: visible;
+}
+
+.movelist li {
+    width: 58px;
+    height: 60px;
+    border: 1px solid #ccc;
+}
+
+.movelist li img {
+    width: 58px;
+    display: block;
+}
+
+.details_right .title,
+.details_right .price {
+    line-height: 36px;
+}
+
+.details .remind {
+    width: 400px;
+    height: 200px;
+    background: #eee;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -100px;
+    display: none;
+}
+
+h3 {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.remind span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.remind a {
+    text-decoration: none;
+    color: black;
+    padding: 0 5px;
+    line-height: 24px;
+    display: block;
+    width: 80px;
+    text-align: center;
+    border: 1px solid rgb(172, 63, 63);
+    background: rgb(145, 144, 144);
+    float: left;
+    margin-left: 70px;
+    margin-top: 80px;
+}
+
+.remind a:hover {
+    background: orange;
+    color: white
+}
